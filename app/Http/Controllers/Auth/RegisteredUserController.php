@@ -30,12 +30,23 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
+        $request->validate([
+            'username' => 'required|min:2|max:12',
+            'email' => 'required|min:5|max:40|unique:users,email|email',
+             //uniqueは「unique:テーブル名、カラム名」
+            'password' => 'required|alpha_num|min:8|max:20|confirmed',
+             //confirmedは↓ではなく↑。
+            'password_confirmation' => 'required|alpha_num|min:8|max:20',
+        ]);
+
         User::create([
             'username' => $request->username,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
 
+    // ↓セッションにデータを保存。セッション保存の記述はこれだけ。
+    session(['username' => $request->username]);
         return redirect('added');
     }
 

@@ -19,6 +19,7 @@ class AuthenticatedSessionController extends Controller
     {
         return view('auth.login');
     }
+    // ↑URL(get)から来たらauth.loginを開く
 
     /**
      * Handle an incoming authentication request.
@@ -31,5 +32,6 @@ class AuthenticatedSessionController extends Controller
 
         return redirect()->intended('top');
     }
+    // ↑テキストを入力した場合はtop画面に移る
 
 }

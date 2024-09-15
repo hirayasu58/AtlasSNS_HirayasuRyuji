@@ -20,5 +20,10 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+        $this->call([
+        UsersTableSeeder::class,
+        ]);
+        // ↑runメソッドでUsersTableSeederを呼び出す。これがないとコマンドを実行してもレコードが作成されない。
     }
 }
