@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->group(function () {
 
-    Route::get('login', [AuthenticatedSessionController::class, 'create']);
+    Route::get('login', [AuthenticatedSessionController::class, 'create'])-> name('login'); //'login'に省略
     Route::post('login', [AuthenticatedSessionController::class, 'store']);
 
     Route::get('register', [RegisteredUserController::class, 'create']);
@@ -18,3 +18,5 @@ Route::middleware('guest')->group(function () {
     Route::post('added', [RegisteredUserController::class, 'added']);
 
 });
+
+//ログアウト中のページはauth.phpに、ログイン中のページはweb.phpに記述。

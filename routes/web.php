@@ -20,11 +20,18 @@ use Illuminate\Support\Facades\Route;
 
 require __DIR__ . '/auth.php';
 
-Route::get('top', [PostsController::class, 'index']);
+// group=接頭部の共通化や、一括して複数のルートに適応させる。
+Route::middleware('user')->group(function () {
 
-Route::get('profile', [ProfileController::class, 'profile']);
+    Route::get('top', [PostsController::class, 'index']);
 
-Route::get('search', [UsersController::class, 'index']);
+    Route::get('profile', [ProfileController::class, 'profile']);
 
-Route::get('follow-list', [PostsController::class, 'index']);
-Route::get('follower-list', [PostsController::class, 'index']);
+    Route::get('search', [UsersController::class, 'index']);
+
+    Route::get('follow-list', [PostsController::class, 'index']);
+    Route::get('follower-list', [PostsController::class, 'index']);
+
+});
+
+//ログアウト中のページはauth.phpに、ログイン中のページはweb.phpに記述。
