@@ -11,9 +11,9 @@ header {
     background: #186AC9;
 }
 
-.head {
+/* .head {
     display: flex;
-}
+} */
 
 .user-name {
     color: #fff;
@@ -26,14 +26,26 @@ nav {
     display: none;
 }
 
+.title {
+    width: 40%;
+}
+
+/* .icon-img {
+    width: 10%;
+} */
+
+.side-user {
+    display: flex;
+}
+
 .accordion-container {
     display: flex;
     position: relative;
-    /* margin-left: 70px; */
     float: right;
     outline: 0;
     border-top: none;
     outline: 0;
+    margin: 0 0 0 auto;
 }
 
 .accordion-container p {
@@ -52,17 +64,17 @@ nav {
 }
 
 .menu-btn::before {
-    border-right: solid 2px #fff;
-    border-top: solid 2px #fff;
+    border-right: solid 3px #fff;
+    border-top: solid 3px #fff;
     content: "";
     display: block;
-    height: 8px;
+    height: 20px;
     position: absolute;
     right: 25px;
     top: 38%;
     transform: rotate(135deg);
     transition: transform .3s ease-in-out, top .3s ease-in-out;
-    width: 8px;
+    width: 20px;
 }
 
 /* .menu-btn::before {

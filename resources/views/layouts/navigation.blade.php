@@ -1,8 +1,8 @@
         <div id="head">
             <div class="side-user">
+                                    <!-- "{{-- --}}"でlaravelの関数を使えるようにする。ルーティングでname'index'を用意しておく。 -->
+                    <h1><a href="{{ route('index') }}"><img src="{{ asset('/images/atlas.png') }}" class="title"></a></h1>
                 <div id="accordion" class="accordion-container">
-                                <!-- "{{-- --}}"でlaravelの関数を使えるようにする。ルーティングでname'index'を用意しておく。 -->
-            <h1><a href="{{ route('index') }}"><img src="{{ asset('/images/atlas.png') }}" class="title"></a></h1>
                     <p class="user-name">〇〇さん</p>
                         <p class="menu-btn active"></p>
                             <nav>
