@@ -17,10 +17,10 @@ class LoginUserCheck
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
     public function handle(Request $request, Closure $next)
-    {
-        if(Auth::check()){
-            return route('/login');
-        }
+    {   //↓'!'で非定型。「ユーザーじゃなければ」になる。
+        if(!Auth::check()){
+            return redirect()->route('login');
+        } //↑redirect()は必須。auth.phpでnameを'login'にしているから「->route('login')」が必要になってくる。
         return $next($request);
     }
 }

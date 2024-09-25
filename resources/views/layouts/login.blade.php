@@ -27,6 +27,7 @@
 <body>
   <header>
     @include('layouts.navigation')
+    <!-- ↑ headerは'navigation.blade.php'内に記述されてる -->
   </header>
   <!-- Page Content -->
   <div id="row">
@@ -51,10 +52,10 @@
     </div>
   </div>
   <footer>
-  </footer>
-  <script src="{{ asset('js/app.js') }}"></script>
-  <script src="JavaScriptファイルのURL"></script>
-  <script src="JavaScriptファイルのURL"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <!-- <script src="{{ asset('js/app.js') }}"></script> -->
+  <script src="{{ asset('js/script.js') }}"></script>
+  <!-- ↑ asset()はpublicフォルダを指してる -->
 </body>
 
 </html>
