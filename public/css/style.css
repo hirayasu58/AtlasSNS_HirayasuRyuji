@@ -58,6 +58,7 @@ nav {
     content: "";
     height: 15px;
     position: relative;
+    /* ↑親要素 */
     right: 25px;
     top: 38%;
     transform: rotate(135deg);
@@ -67,6 +68,7 @@ nav {
 
 .accordion-container ul {
     position: absolute;
+    /* ↑子要素 */
     left: -235px;
     top: 81px;
     width: 335px;
