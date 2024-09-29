@@ -1553,7 +1553,7 @@ h6 small {
 h1,
 h2,
 h3 {
-  margin-top: 22px;
+  margin-top: 11px;
   margin-bottom: 11px
 }
 
@@ -1628,7 +1628,7 @@ h6 {
 }
 
 p {
-  margin: 0 0 11px
+  /* margin: 0 0 11px */
 }
 
 .lead {

@@ -6,36 +6,36 @@ body {}
 
 /* header */
 header {
-    display: flex;
-    padding: 10px;
+    padding: 15px 30px 15px;
     background: #186AC9;
 }
 
-/* .head {
+#head {
     display: flex;
-} */
+}
 
 .user-name {
     color: #fff;
-    font-size: large;
+    font-size: 20px;
     font-weight: bold;
+    width: 200px;
+    text-align: center;
+    margin: auto 0;
 }
 
 /* ↓ 基本閉まっているように */
 nav {
     display: none;
+    position: absolute;
 }
 
 .title {
     width: 40%;
 }
 
-/* .icon-img {
-    width: 10%;
-} */
-
 .side-user {
     display: flex;
+    margin: 0 0 0 auto;
 }
 
 .accordion-container {
@@ -53,49 +53,54 @@ nav {
 }
 
 .menu-btn {
-    /* display: flex; */
-    font-size: 20px;
-    padding: 15px;
-    /* padding-left: 10px; */
-    /* width: 50px; */
-    background-color: transparent;
-    color: #fff;
-    position: relative
-}
-
-.menu-btn::before {
     border-right: solid 3px #fff;
     border-top: solid 3px #fff;
     content: "";
-    display: block;
-    height: 20px;
-    position: absolute;
+    height: 15px;
+    position: relative;
     right: 25px;
     top: 38%;
     transform: rotate(135deg);
-    transition: transform .3s ease-in-out, top .3s ease-in-out;
-    width: 20px;
+    /* transition: transform .3s ease-in-out, top .3s ease-in-out; */
+    width: 15px;
 }
 
-/* .menu-btn::before {
-content: '＞';
-position: absolute;
-display: block;
-width: 8px;
-height: 8px;
-right: 40px;
-top: 3%;
-transform: rotate(-90deg);
-transform: translateY();
-} */
+.accordion-container ul {
+    position: absolute;
+    left: -235px;
+    top: 81px;
+    width: 335px;
+    font-size: large;
+}
 
-*/ .menu-btn.active::before {
-    display: flex;
-    transform: rotate(90deg);
+.menu-btn.active {
+    top: 45%;
+    transform: rotate(-45deg);
 }
 
 .profile {
-    background-color: #186AC9;
+    color: #fff;
+}
+
+.home {
+    color: #636b6f;
+}
+
+.logout {
+    color: #636b6f;
+}
+
+.li-others {
+    background-color: #fff;
+}
+
+.li-profile {
+    background-color: #00297e;
+}
+
+.icon-img {
+    width: 55px;
+    height: 55px;
 }
 
 /* main content */
