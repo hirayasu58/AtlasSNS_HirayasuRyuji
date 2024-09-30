@@ -38,7 +38,7 @@ nav {
     margin: 0 0 0 auto;
 }
 
-.accordion-container {
+/* .accordion-container {
     display: flex;
     position: relative;
     float: right;
@@ -46,10 +46,19 @@ nav {
     border-top: none;
     outline: 0;
     margin: 0 0 0 auto;
-}
+} */
 
 .accordion-container p {
     transition: 0.3s;
+}
+
+.accordion-container ul {
+    position: absolute;
+    /* ↑子要素 */
+    left: -235px;
+    top: 67px;
+    width: 335px;
+    font-size: large;
 }
 
 .menu-btn {
@@ -66,13 +75,8 @@ nav {
     width: 15px;
 }
 
-.accordion-container ul {
-    position: absolute;
-    /* ↑子要素 */
-    left: -235px;
-    top: 81px;
-    width: 335px;
-    font-size: large;
+.menu-btn:hover {
+    cursor: pointer;
 }
 
 .menu-btn.active {
@@ -80,24 +84,20 @@ nav {
     transform: rotate(-45deg);
 }
 
-.profile {
-    color: #fff;
-}
-
-.home {
-    color: #636b6f;
-}
-
-.logout {
-    color: #636b6f;
-}
-
-.li-others {
+.accordion-nav ul li {
     background-color: #fff;
 }
 
-.li-profile {
-    background-color: #00297e;
+.accordion-nav ul li:hover {
+    background-color: #186AC9;
+}
+
+.accordion-nav ul a {
+    color: #186AC9;
+}
+
+.accordion-nav ul a:hover {
+    color: #fff;
 }
 
 .icon-img {

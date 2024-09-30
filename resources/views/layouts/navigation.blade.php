@@ -5,11 +5,11 @@
                 <p class="user-name">〇〇　さん</p>
                 <div id="accordion" class="accordion-container">
                     <p class="menu-btn"></p>
-                    <nav>
+                    <nav class="accordion-nav">
                         <ul>
-                            <li class="li-others"><a class="home" href="{{ route('index') }}">HOME</a></li>
-                            <li class="li-profile"><a class="profile" href="{{ route('profile') }}">プロフィール編集</a></li>
-                            <li class="li-others"><a class="logout" href="{{ route('login') }}">ログアウト</a></li>
+                            <li><a href="{{ route('index') }}">HOME</a></li>
+                            <li><a href="{{ route('profile') }}">プロフィール編集</a></li>
+                            <li><a href="{{ route('login') }}">ログアウト</a></li>
                         </ul>
                     </nav>
                 </div>

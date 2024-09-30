@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\PostsController;
+use App\Http\Controllers\FollowsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,8 +30,8 @@ require __DIR__ . '/auth.php';
 
     Route::get('search', [UsersController::class, 'index'])-> name('search');
 
-    Route::get('followList', [PostsController::class, 'followList'])-> name('follow');
-    Route::get('followerList', [PostsController::class, 'followerList'])-> name('follower');
+    Route::get('followList', [FollowsController::class, 'followList'])-> name('follow');
+    Route::get('followerList', [FollowsController::class, 'followerList'])-> name('follower');
 
     Route::get('index', [PostsController::class,'index'])-> name('index');
     // ↑ headerのリンクを使えるようにする。name'index'を用意。
