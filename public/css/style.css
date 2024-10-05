@@ -75,9 +75,11 @@ nav {
     width: 15px;
 }
 
-.menu-btn:hover {
+.accordion-container:hover {
     cursor: pointer;
 }
+
+/* ↑".accordion-container"を選ぶことによって矢印以下全てにホバーが効く */
 
 .menu-btn.active {
     top: 45%;
@@ -96,9 +98,16 @@ nav {
     color: #186AC9;
 }
 
-.accordion-nav ul a:hover {
+/* .accordion-nav ul a:hover {
+    color: #fff;
+} */
+/* ↑だとa(文字)にホバーしないと色が変わらない */
+
+.accordion-nav ul li:hover a {
     color: #fff;
 }
+
+/* ↑ならul liにホバーしたときにaが変化する */
 
 .icon-img {
     width: 55px;

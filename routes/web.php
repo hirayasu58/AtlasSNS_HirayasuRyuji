@@ -28,7 +28,7 @@ require __DIR__ . '/auth.php';
 
     Route::get('profile', [ProfileController::class, 'profile'])-> name('profile');
 
-    Route::get('search', [UsersController::class, 'index'])-> name('search');
+    Route::get('search', [UsersController::class, 'search'])-> name('search');
 
     Route::get('followList', [FollowsController::class, 'followList'])-> name('follow');
     Route::get('followerList', [FollowsController::class, 'followerList'])-> name('follower');
