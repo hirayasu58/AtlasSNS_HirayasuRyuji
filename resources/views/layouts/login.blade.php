@@ -39,12 +39,13 @@
         <p>〇〇さんの</p>
         <div>
           <p>フォロー数</p>
-          <p>〇〇名</p>
+          <p>{{ Auth::user()->following()->count() }}名</p>
+          <!-- User.phpのAuthenticatableがAuthを継承しているから、User::classが使える。真ん中のはメソッド名。数を表示したいからcount()。 -->
         </div>
         <p class="btn"><a href="{{ route('follow') }}">フォローリスト</a></p>
         <div>
           <p>フォロワー数</p>
-          <p>〇〇名</p>
+          <p>{{ Auth::user()->followed()->count() }}名</p>
         </div>
         <p class="btn"><a href="{{ route('follower') }}">フォロワーリスト</a></p>
       </div>

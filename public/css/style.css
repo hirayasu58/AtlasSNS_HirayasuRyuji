@@ -153,3 +153,91 @@ nav {
     flex: 0 0 19%;
     border-left: 1px solid #727272;
 }
+
+.post-container {
+    display: flex;
+    padding: 25px 0 25px;
+    border-bottom: 5px solid #e0e0e0;
+}
+
+#post {
+    width: 60%;
+    height: 120px;
+    border: 0px none;
+    background-color: #f5f8fa;
+    font-size: large;
+    padding: 5px;
+}
+
+.post-button {
+    width: 5px;
+    height: 5px;
+    align-self: flex-end;
+    margin-left: 20px;
+}
+
+.post-button img {
+    width: 45px;
+    height: 45px;
+    position: relative;
+    bottom: 40px;
+    right: 15px;
+}
+
+.icon-img {
+    margin: 0 10px 0 60px;
+    width: 50px;
+    height: 50px;
+}
+
+.post-list {
+    margin-left: 30px;
+}
+
+.edit-img,
+.delete-img,
+.delete-img-hover {
+    width: 55px;
+    height: 55px;
+}
+
+.post-delete {
+    position: relative;
+}
+
+.post-delete img {
+    transition: opacity 0.5s;
+}
+
+.post-delete:hover img:first-of-type {
+    opacity: 0;
+}
+
+.post-delete img:last-of-type {
+    position: absolute;
+    top: 7px;
+    left: 13px;
+    opacity: 0;
+}
+
+.post-delete:hover img:last-of-type {
+    opacity: 1;
+}
+
+.search-bar {
+    margin-left: 50px;
+}
+
+.search-result {
+    margin-left: 50px;
+}
+
+/* .search-button {
+    width: 55px;
+    height: 55px;
+} */
+
+/* .search-image {
+    width: 55px;
+    height: 55px;
+} */
