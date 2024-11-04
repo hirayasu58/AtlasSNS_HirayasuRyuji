@@ -153,3 +153,39 @@ nav {
     flex: 0 0 19%;
     border-left: 1px solid #727272;
 }
+
+.post-container {
+    display: flex;
+    padding: 25px 0 25px;
+    border-bottom: 5px solid #e0e0e0;
+}
+
+#post {
+    width: 60%;
+    height: 120px;
+    border: 0px none;
+    background-color: #f5f8fa;
+    font-size: large;
+    padding: 5px;
+}
+
+.post-button {
+    width: 5px;
+    height: 5px;
+    align-self: flex-end;
+    margin-left: 20px;
+}
+
+.post-button img {
+    width: 45px;
+    height: 45px;
+    position: relative;
+    bottom: 40px;
+    right: 15px;
+}
+
+.icon-img {
+    margin: 0 10px 0 60px;
+    width: 50px;
+    height: 50px;
+}
