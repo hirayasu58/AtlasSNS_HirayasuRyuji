@@ -34,6 +34,7 @@ Route::middleware('user')->group(function () {
     // ↑検索ページ表示
 
     Route::get('followList', [FollowsController::class, 'followList'])-> name('follow');
+
     Route::get('followerList', [FollowsController::class, 'followerList'])-> name('follower');
 
     Route::post('posts/index', [PostsController::class,'newPost'])->name('new_post');
