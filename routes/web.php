@@ -42,6 +42,8 @@ Route::middleware('user')->group(function () {
     Route::get('post/{id}/delete', [PostsController::class,'delete'])->name('delete');
     // ↑postsではなくpost。ゴミ箱アイコン押されるとdeleteメソッド発動
 
+    route::post('posts/index', [PostsController::class,'newPost'])->name('new_post');
+
 });
 
 //ログアウト中のページはauth.phpに、ログイン中のページはweb.phpに記述。
