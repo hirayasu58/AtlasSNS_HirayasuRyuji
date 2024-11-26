@@ -16,7 +16,6 @@ class UsersController extends Controller
             // ↑ユーザーネームのあいまい検索
         }else{
             $users = User::all();
-
         }
 
         return view('users/search',['users'=>$users],['keyword'=>$keyword]);
@@ -24,4 +23,22 @@ class UsersController extends Controller
         // ['keyword'=>$keyword]＝検索ワード表示に使用
 
     }
+
+    public function updateProfile(Request $request){
+        $id = $request->input('id');
+        $username = $request->input('username');
+        $mail = $request->input('mail');
+        $password = $request->input('password');
+        $bio = $request->input('bio');
+
+        User::where('id,$id')->update([
+            'username' => $username,
+            'mail' => $mail,
+            'password' => Hash::make($request->$password),
+            'bio' => $bio,
+        ]);
+
+        return redirect('/top');
+    }
+
 }

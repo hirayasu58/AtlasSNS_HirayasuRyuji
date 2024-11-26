@@ -17,7 +17,7 @@
   @if ($user->id !== Auth::user()->id)
   <!-- ↑自分のユーザー名が表示されないように -->
   <div class="search-result">
-    <p class="user-icon"><img src="{{ asset('/images/icon2.png') }}" class="icon-img"></p>
+    <p class="user-icon"><img src="{{ asset('/images/icon2.png') }}" class="icon-img-search"></p>
     <!-- ↑アイコンも各ユーザーのアイコンにしたい -->
     <p class="search-user_name">{{ $user->username }}</p>
   </div>
