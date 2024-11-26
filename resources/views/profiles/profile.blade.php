@@ -3,7 +3,7 @@
 @section('content')
 <div class="profile-container">
   <div class="update">
-    {!! Form::open(['url' => '/profile/update') !!}
+    {{ Form::open(['url' => 'profile/update') }}
     @csrf
     {{Form::hidden('id',Auth::user()->id)}}
     <img src="{{ asset('/public/images/icon1.png') }}" class="profile-icon-img">
@@ -32,9 +32,9 @@
         <label for="icon">アイコン画像</label>
         <input type="file" name="images">
       </div>
-      <input type="submit" class="btn btn-denger">
+      <button type='submit' class='update-button'>更新</button>
       {{ Form::token() }}
-      {!! From::close() !!}
+      {{ From::close() }}
     </div>
   </div>
 </div>
