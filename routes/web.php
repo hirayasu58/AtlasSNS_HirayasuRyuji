@@ -27,8 +27,11 @@ Route::middleware('user')->group(function () {
     Route::get('top', [PostsController::class, 'index'])-> name('index');
     // ↑ headerのリンクを使えるようにする。name'index'を用意。TOPページの表示
 
-    Route::post('profile/update', [UsersController::class, 'updateProfile'])-> name('update');
+    Route::get('profile', [UsersController::class, 'profile'])-> name('profile');
     // ↑プロフィールページの表示
+
+    Route::post('profile/update', [UsersController::class, 'updateProfile'])-> name('update');
+    // ↑update処理
 
     Route::get('users/search', [UsersController::class, 'search'])-> name('search');
     // ↑検索ページ表示

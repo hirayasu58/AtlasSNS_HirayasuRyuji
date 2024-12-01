@@ -8,7 +8,7 @@
                     <nav class="accordion-nav">
                         <ul>
                             <li><a href="{{ route('index') }}">HOME</a></li>
-                            <li><a href="{{ route('update') }}">プロフィール編集</a></li>
+                            <li><a href="{{ route('profile') }}">プロフィール編集</a></li>
                             <li><a href="{{ route('login') }}">ログアウト</a></li>
                         </ul>
                     </nav>
