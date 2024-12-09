@@ -41,8 +41,8 @@ class UsersController extends Controller
         $bio = $request->input('bio');
 
         $dir = 'storage';
-        $filename = $request->file('icon_image')->getClientOriginalName();
-        $request->file('icon_image')->storeAs('public/'.$dir, $filename);
+        $filename = $request->file($icon_image)->getClientOriginalName();
+        $request->file($icon_image)->storeAs('public/'.$dir, $filename);
 
         User::where('id',$id)->update([
             'icon_image' => $icon_image,
