@@ -3,10 +3,10 @@
 @section('content')
 <div class="profile-container">
   <div class="update">
-    {{ Form::open(['url' => ['profile/update']]) }}
+    {{ Form::open(['url' => 'profile/update', 'enctype' => 'multipart/form-data']) }}
     @csrf
     {{Form::hidden('id',Auth::user()->id)}}
-    <img src="{{ asset('/images/'. Auth::user()->icon_image1) }}" class="profile-icon-img">
+    <img src="{{ asset('/images/'. Auth::user()->icon_image) }}" class="profile-icon-img">
     <div class="update-form">
       <div class="update-block">
         <label for="name">ユーザー名</label>
@@ -18,11 +18,11 @@
       </div>
       <div class="update-block">
         <label for="pass">パスワード</label>
-        <input type="password" name="password" value="{{ Auth::user()->password }}">
+        <input type="password" name="password" value="">
       </div>
       <div class="update-block">
         <label for="pass">パスワード確認</label>
-        <input type="password" name="password_confirmation" value="{{ Auth::user()->password }}">
+        <input type="password" name="password_confirmation" value="">
       </div>
       <div class="update-block">
         <label for="bio">自己紹介</label>
@@ -30,14 +30,11 @@
       </div>
       <div class="update-block">
         <label for="icon">アイコン画像</label>
-        <input type="file" name="images">
+        <input type="file" name="icon_image">
       </div>
     <button type='submit' class='update-button'>更新</button>
     {{ Form::token() }}
-    From::close()
-    @foreach($users as $user)
-    <p>{{ $user->password }}</p>
-    @endforeach
+    {{ Form::close() }}
     </div>
   </div>
 </div>

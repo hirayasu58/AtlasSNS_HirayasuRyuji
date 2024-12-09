@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
-use App\Http\Controllers\Hash;
-use Illuminate\Support\Facades\Auth;
+// use App\Http\Controllers\Hash;
+use Illuminate\Support\Facades\Hash;
 
 class UsersController extends Controller
 {
@@ -28,24 +28,26 @@ class UsersController extends Controller
 
     public function profile(){
 
-        $users = User::where('id', Auth::id())->get();
-
-        return view('profiles/profile', ['users'=>$users]);
+        return view('profiles/profile');
 
     }
 
     public function updateProfile(Request $request){
         $id = $request->input('id');
-        $icon_image1 = $request->input('icon_image1');
+        $icon_image = $request->input('icon_image');
         $username = $request->input('username');
         $mail = $request->input('mail');
         $password = $request->input('password');
         $bio = $request->input('bio');
 
-        User::where('id,$id')->update([
-            'icon_image1' => $icon_image1,
+        $dir = 'storage';
+        $filename = $request->file('icon_image')->getClientOriginalName();
+        $request->file('icon_image')->storeAs('public/'.$dir, $filename);
+
+        User::where('id',$id)->update([
+            'icon_image' => $icon_image,
             'username' => $username,
-            'mail' => $mail,
+            'email' => $mail,
             'password' => Hash::make($request->password),
             'bio' => $bio,
         ]);
