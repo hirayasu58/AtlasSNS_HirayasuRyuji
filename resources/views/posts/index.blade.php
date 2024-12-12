@@ -2,7 +2,7 @@
 
     {{ Form::open(['url' => 'posts/index' ]) }}
       <div class='post-container'>
-        <img src="{{ asset('/images/icon1.png') }}" class="icon-img">
+        <img src="{{ asset('/storage/'. Auth::user()->icon_image) }}" class="icon-img">
         {{ Form::textarea('post_create',null,['id' => 'post', 'placeholder' => '投稿内容を入力してください。', 'rows' => '5']) }}
         {{ Form::token() }}
         <!-- {{ Form::input('hidden', 'post_user', '') }} -->
@@ -12,7 +12,7 @@
 
     @foreach ($posts as $post)
       <div class='post-list'>
-        <p class='user-icon'><img src="{{ asset('/images/icon1.png') }}" class="icon-img"></p>
+        <p class='user-icon'><img src="{{ asset('/storage/'. Auth::user()->icon_image) }}" class="icon-img"></p>
         <p class='post-user_id'>{{ $post->user_id }}</p>
         <p class='post-post'>{{ $post->post }}</p>
         <p class='post-updated_at'>{{ $post->updated_at }}</p>

@@ -13,6 +13,6 @@
                         </ul>
                     </nav>
                 </div>
-                <img src="{{ asset('/images/icon1.png') }}" class="icon-img">
+                <img src="{{ asset('/storage/'. Auth::user()->icon_image) }}" class="icon-img">
             </div>
         </div>

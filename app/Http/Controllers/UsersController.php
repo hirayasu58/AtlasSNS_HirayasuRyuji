@@ -34,18 +34,19 @@ class UsersController extends Controller
 
     public function updateProfile(Request $request){
         $id = $request->input('id');
-        $icon_image = $request->input('icon_image');
+        // $icon_image = $request->input('icon_image');
         $username = $request->input('username');
         $mail = $request->input('mail');
         $password = $request->input('password');
         $bio = $request->input('bio');
 
-        $dir = 'storage';
-        $filename = $request->file($icon_image)->getClientOriginalName();
-        $request->file($icon_image)->storeAs('public/'.$dir, $filename);
+        $filename = $request->file('icon_image')->getClientOriginalName();
+        // getClientOriginalName()←その画像についてる名前を取得する
+        $request->file('icon_image')->storeAs('/public', $filename);
+        // 任意でタイトルを入れて保存。（↑getClientOriginalName()使えば元々のタイトルを入れられる）
 
         User::where('id',$id)->update([
-            'icon_image' => $icon_image,
+            'icon_image' => $filename,
             'username' => $username,
             'email' => $mail,
             'password' => Hash::make($request->password),
