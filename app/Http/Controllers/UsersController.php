@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
-// use App\Http\Controllers\Hash;
+// use App\Http\Controllers\Auth;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class UsersController extends Controller
@@ -33,6 +34,17 @@ class UsersController extends Controller
     }
 
     public function updateProfile(Request $request){
+
+        $request->validate([
+            'username' => 'required|min:2|max:12',
+            'email' => 'required|min:5|max:40|unique:users,email|'.Auth::user()->email.'email',
+            'password' => 'required|alpha_num|min:8|max:20|confirmed',
+            'password_confirmation' => 'required|alpha_num|min:8|max:20',
+            'bio' => 'max:150',
+            'icon_image' => 'file|mimes:jpg,png,bmp,gif,svg',
+        ]);
+
+
         $id = $request->input('id');
         // $icon_image = $request->input('icon_image');
         $username = $request->input('username');
@@ -47,6 +59,7 @@ class UsersController extends Controller
 
         User::where('id',$id)->update([
             'icon_image' => $filename,
+            //↑DBには画像のファイル名をそのまま入れる
             'username' => $username,
             'email' => $mail,
             'password' => Hash::make($request->password),

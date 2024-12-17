@@ -2,7 +2,7 @@
             <!-- "{{-- --}}"でlaravelの関数を使えるようにする。ルーティングでname'index'を用意しておく。 -->
             <h1><a href="{{ route('index') }}"><img src="{{ asset('/images/atlas.png') }}" class="title"></a></h1>
             <div class="side-user">
-                <p class="user-name">〇〇　さん</p>
+                <p class="user-name">{{ Auth::user()->username }}さん</p>
                 <div id="accordion" class="accordion-container">
                     <p class="menu-btn"></p>
                     <nav class="accordion-nav">
