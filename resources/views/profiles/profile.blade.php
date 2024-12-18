@@ -33,6 +33,15 @@
         <input type="file" name="icon_image">
       </div>
     <button type='submit' class='update-button'>更新</button>
+    @if($errors->any())
+        <div class="alert alert-danger">
+          <ul>
+            @foreach($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+          </ul>
+        </div>
+    @endif
     {{ Form::token() }}
     {{ Form::close() }}
     </div>

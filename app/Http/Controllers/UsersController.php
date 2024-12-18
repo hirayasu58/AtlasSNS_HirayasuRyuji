@@ -37,7 +37,7 @@ class UsersController extends Controller
 
         $request->validate([
             'username' => 'required|min:2|max:12',
-            'email' => 'required|min:5|max:40|unique:users,email|'.Auth::user()->email.'email',
+            'mail' => 'required|min:5|max:40|unique:users,email,'.Auth::user()->email.',email',
             'password' => 'required|alpha_num|min:8|max:20|confirmed',
             'password_confirmation' => 'required|alpha_num|min:8|max:20',
             'bio' => 'max:150',
