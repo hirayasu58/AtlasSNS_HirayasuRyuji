@@ -13,7 +13,7 @@
     </div>
   {{ Form::close() }}
 
-  @foreach ($users as $user)
+@foreach ($users as $user)
   @if ($user->id !== Auth::user()->id)
   <!-- ↑自分のユーザー名が表示されないように -->
   <div class="search-result">
@@ -21,7 +21,28 @@
     <!-- ↑アイコンも各ユーザーのアイコンにしたい -->
     <p class="search-user_name">{{ $user->username }}</p>
   </div>
-@endif
+
+    @if (Auth::user()->isFollowing($user->id))
+    <!-- ↑フォローしている相手だったらtrue。 -->
+    <!-- Auth::user()で自分のIDがfollowing_idにあるうえで、相手のIDがfollowed_idがあるかどうか -->
+      <form action="{{ route('follows.un_follow') }}" method="post">
+        @csrf
+        <input type="hidden" name="un_follow_id" value="{{ $user->id }}">
+          <button type="submit" class="btn btn-un_follow">
+            フォロー解除
+          </button>
+      </form>
+    @else
+    <!-- ↑フォローしてないorフォロー外したら -->
+      <form action="{{ route('follows.follow') }}" method="post">
+        @csrf
+        <input type="hidden" name="follow_id" value="{{ $user->id }}">
+          <button type="submit" class="btn btn-follow">
+            フォローする
+          </button>
+      </form>
+    @endif
+  @endif
 @endforeach
 
 </x-login-layout>

@@ -44,11 +44,22 @@ class User extends Authenticatable //Authを継承してる
         return $this->belongsToMany(User::class,'follows','followed_id','following_id');
     }
     // フォロワー→フォロー
+    // モデルの場所はクラス、ディレクトリどちらでも可。クラスの場合は''不要。
 
     public function posts(){
         return $this->hasMany('App\Models\Post');
     }
     // postとのリレーション
-}
 
-// モデルの場所はクラス、ディレクトリどちらでも可。クラスの場合は''不要。
+    public function isFollowing($user_id){
+        return $this->following()->where('followed_id', $user_id)->exists();
+        // User class内のfollowingメソッド(followsテーブルとリレーション済)呼び出して、followed_idに相手のID($user_id)があるかどうかの確認。existsを使って値が入っていたらtrue、入っていなかったらfalseを返す。
+    }
+    // フォローしているかどうか
+
+    // public function isFollowed($user_id){
+    //     return $this->followed()->where('following_id', $user_id)->exists();
+    // }
+    // フォローされているかどうか ※今んとこ使わない 1/13
+
+}

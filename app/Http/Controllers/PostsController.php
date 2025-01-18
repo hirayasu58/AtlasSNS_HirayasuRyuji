@@ -47,4 +47,21 @@ class PostsController extends Controller
         // メソッド発動したら'top'のリレーション発動。'top'リレーションはtopページ表示。
     }
 
+    public function updatePost(request $request){
+
+        $request->validate([
+            'update_post' => 'required|min:1|max:150',
+        ]);
+
+        $id = $request->input('update_id');
+        $update_post = $request->input('update_post');
+
+        Post::where('id',$id)->update([
+            'post' => $update_post,
+        ]);
+
+        return redirect('/top');
+
+    }
+
 }

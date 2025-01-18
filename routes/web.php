@@ -48,6 +48,12 @@ Route::middleware('user')->group(function () {
 
     route::post('posts/index', [PostsController::class,'newPost'])->name('new_post');
 
+    route::get('post/update', [PostsController::class,'updatePost'])->name('update');
+
+    Route::post('/follow', [ FollowsController::class, 'follow'])->name('follows.follow');
+
+    Route::post('/un_follow', [ FollowsController::class, 'un_follow'])->name('follows.un_follow');
+
 });
 
 //ログアウト中のページはauth.phpに、ログイン中のページはweb.phpに記述。

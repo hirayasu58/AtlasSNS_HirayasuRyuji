@@ -46,16 +46,22 @@ class UsersController extends Controller
 
 
         $id = $request->input('id');
-        // $icon_image = $request->input('icon_image');
+        $icon_image = $request->file('icon_image'); //画像ファイルはinputじゃなくてfile
         $username = $request->input('username');
         $mail = $request->input('mail');
         $password = $request->input('password');
         $bio = $request->input('bio');
 
-        $filename = $request->file('icon_image')->getClientOriginalName();
-        // getClientOriginalName()←その画像についてる名前を取得する
-        $request->file('icon_image')->storeAs('/public', $filename);
-        // 任意でタイトルを入れて保存。（↑getClientOriginalName()使えば元々のタイトルを入れられる）
+        if($icon_image != null){ //←画像ファイルがnullじゃなければtrue、nullならfalse
+            $filename = $icon_image->getClientOriginalName();
+            // getClientOriginalName()←その画像についてる名前を取得する
+            $icon_image->storeAs('/public', $filename);
+            // 任意でタイトルを入れて保存。（↑getClientOriginalName()使えば元々のタイトルを入れられる）
+
+        }else{
+            $filename = Auth::user()->icon_image ;
+            // nullの場合は元々登録されている画像を使う
+        }
 
         User::where('id',$id)->update([
             'icon_image' => $filename,
