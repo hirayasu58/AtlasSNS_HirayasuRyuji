@@ -14,15 +14,18 @@ class FollowsController extends Controller
     public function followList(){
         // フォローしているユーザーのidを取得
 
-        $posts = Post::get();
+        // $posts = Post::get();
 
         $following_id = Auth::user()->following()->pluck('followed_id');
+        // まず自分(ログインしてるユーザー)がフォローしてるユーザーのIDを取得
+        // pluck()　該当する引数の値を全部取ってくる
 
         $followings = User::whereIn('id', $following_id)->get();
+        // ↑から取得した値(ID)をusersテーブルから引っ張ってくる
 
-        // $posts = Post::with('user')->where('id' , $following_id)->get();
+        $follows_posts = Post::whereIn('id' , $following_id)->get();
 
-        return view('follows.followList', compact('followings','posts'));
+        return view('follows.followList', compact('followings','follows_posts'));
     }
 
     public function followerList(){
