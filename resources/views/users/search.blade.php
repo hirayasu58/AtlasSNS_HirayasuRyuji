@@ -17,7 +17,7 @@
   @if ($user->id !== Auth::user()->id)
   <!-- ↑自分のユーザー名が表示されないように -->
   <div class="search-result">
-    <p class="user-icon"><img src="{{ asset('/images/icon2.png') }}" class="icon-img-search"></p>
+    <p class="user-icon"><img src="{{ asset('storage/' .$user->icon_image) }}" class="icon-img-search img-size"></p>
     <!-- ↑アイコンも各ユーザーのアイコンにしたい -->
     <p class="search-user_name">{{ $user->username }}</p>
   </div>
@@ -28,7 +28,7 @@
       <form action="{{ route('follows.un_follow') }}" method="post">
         @csrf
         <input type="hidden" name="un_follow_id" value="{{ $user->id }}">
-          <button type="submit" class="btn btn-un_follow">
+          <button type="submit" class="btn btn-danger">
             フォロー解除
           </button>
       </form>
@@ -37,7 +37,7 @@
       <form action="{{ route('follows.follow') }}" method="post">
         @csrf
         <input type="hidden" name="follow_id" value="{{ $user->id }}">
-          <button type="submit" class="btn btn-follow">
+          <button type="submit" class="btn btn-primary">
             フォローする
           </button>
       </form>

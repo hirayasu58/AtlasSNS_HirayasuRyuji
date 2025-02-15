@@ -14,8 +14,6 @@ class FollowsController extends Controller
     public function followList(){
         // フォローしているユーザーのidを取得
 
-        // $posts = Post::get();
-
         $following_id = Auth::user()->following()->pluck('followed_id');
         // まず自分(ログインしてるユーザー)がフォローしてるユーザーのIDを取得
         // pluck()　該当する引数の値を全部取ってくる
@@ -23,13 +21,30 @@ class FollowsController extends Controller
         $followings = User::whereIn('id', $following_id)->get();
         // ↑から取得した値(ID)をusersテーブルから引っ張ってくる
 
-        $follows_posts = Post::whereIn('id' , $following_id)->get();
+        $follows_posts = Post::whereIn('user_id' , $following_id)->orderBy('created_at','desc')->get();
+        // 自分がフォローしてるユーザーの投稿だけを表示。
+        // Post::whereIn('user_id'　でpostsテーブルからユーザーの投稿、$following_idで自分がフォローしてるユーザーを引っ張る。
+        //投稿日時は降順「->orderBy('created_at','desc')」
 
         return view('follows.followList', compact('followings','follows_posts'));
     }
 
     public function followerList(){
-        return view('follows.followerList');
+        // フォローされてるユーザーのidを取得
+
+        $followed_id = Auth::user()->followed()->pluck('following_id');
+        // まず自分(ログインしてるユーザー)をフォローしてるユーザーのIDを取得
+        // pluck()　該当する引数の値を全部取ってくる
+
+        $followed = User::whereIn('id', $followed_id)->get();
+        // ↑から取得した値(ID)をusersテーブルから引っ張ってくる
+
+        $followed_posts = Post::whereIn('user_id' , $followed_id)->orderBy('created_at','desc')->get();
+        // 自分をフォローしてるユーザーの投稿だけを表示。
+        // Post::whereIn('user_id'　でpostsテーブルからユーザーの投稿、$followed_idで自分をフォローしてるユーザーを引っ張る。
+        //投稿日時は降順「->orderBy('created_at','desc')」
+
+        return view('follows.followerList', compact('followed','followed_posts'));
     }
 
     public function follow(request $request) //フォローする時のメソッド
@@ -42,7 +57,7 @@ class FollowsController extends Controller
             'followed_id' => $followerId, //フォローされる側(相手)
         ]);
 
-        return redirect('users/search');
+        return back();
     }
 
     public function un_follow(request $request) //フォロー外す時のメソッド
@@ -55,6 +70,7 @@ class FollowsController extends Controller
             'followed_id' => $followerId,
         ])->delete();
 
-        return redirect('users/search');
+        return back();
     }
+
 }

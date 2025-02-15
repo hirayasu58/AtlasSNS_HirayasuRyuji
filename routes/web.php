@@ -24,6 +24,8 @@ require __DIR__ . '/auth.php';
 // group=接頭部の共通化や、一括して複数のルートに適応させる。
 Route::middleware('user')->group(function () {
 
+    Route::get('logout',[PostsController::class, 'logout'])-> name('logout');
+
     Route::get('top', [PostsController::class, 'index'])-> name('index');
     // ↑ headerのリンクを使えるようにする。name'index'を用意。TOPページの表示
 
@@ -47,12 +49,17 @@ Route::middleware('user')->group(function () {
     // ↑postsではなくpost。ゴミ箱アイコン押されるとdeleteメソッド発動
 
     route::post('posts/index', [PostsController::class,'newPost'])->name('new_post');
+    // 新規投稿
 
     route::get('post/update', [PostsController::class,'updatePost'])->name('update');
+    // 投稿編集
 
     Route::post('/follow', [ FollowsController::class, 'follow'])->name('follows.follow');
 
     Route::post('/un_follow', [ FollowsController::class, 'un_follow'])->name('follows.un_follow');
+
+    Route::get('profiles/{id}/otherProfile', [UsersController::class, 'otherProfile'])-> name('other_profile');
+    // ↑フォローしてる/フォローされてるユーザーのプロフィールページの表示
 
 });
 

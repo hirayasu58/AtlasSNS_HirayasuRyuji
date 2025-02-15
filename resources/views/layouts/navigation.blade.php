@@ -9,10 +9,10 @@
                         <ul>
                             <li><a href="{{ route('index') }}">HOME</a></li>
                             <li><a href="{{ route('profile') }}">プロフィール編集</a></li>
-                            <li><a href="{{ route('login') }}">ログアウト</a></li>
+                            <li><a href="{{ route('logout') }}">ログアウト</a></li>
                         </ul>
                     </nav>
                 </div>
-                <img src="{{ asset('/storage/'. Auth::user()->icon_image) }}" class="icon-img">
+                <img src="{{ asset('/storage/'. Auth::user()->icon_image) }}" class="icon-img img-size">
             </div>
         </div>

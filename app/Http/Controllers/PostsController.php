@@ -17,6 +17,13 @@ class PostsController extends Controller
         return view('posts/index');
     }
 
+    public function logout(){
+
+        Auth::logout();
+        return redirect('login');
+
+    }
+
     public function newPost(Request $request): RedirectResponse
     {
         //↓バリデーション

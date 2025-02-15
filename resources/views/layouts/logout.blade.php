@@ -22,10 +22,12 @@
         <!--iphoneのアプリアイコン指定-->
         <link rel="apple-touch-icon-precomposed" href="画像のURL" />
     </head>
-    <body>
-        <header>
-            <h1><img src="images/atlas.png"></h1>
-            <p>Social Network Service</p>
+    <body class="login-back">
+        <header  class="login-header">
+            <div class="header-container">
+                <h1><img src="images/atlas.png" class="login-page-logo"></h1>
+                <p>Social Network Service</p>
+            </div>
         </header>
         <div id="container">
             {{ $slot }}

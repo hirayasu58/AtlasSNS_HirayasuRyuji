@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
-// use App\Http\Controllers\Auth;
+use App\Models\Post;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -73,6 +73,22 @@ class UsersController extends Controller
         ]);
 
         return redirect('/top');
+    }
+
+    public function otherProfile($id){
+
+        // $otherProfileId = $request->input('otherProfileId');
+
+        $user = User::where('id', $id)->first();
+
+        $data = User::find($id);
+
+        $posts = Post::with('user')->whereIn('user_id', $data)->orderBy('created_at','desc')->get();
+        //投稿日時は降順「->orderBy('created_at','desc')」
+
+
+        return view('profiles/otherProfile', compact('posts','user'));
+
     }
 
 }

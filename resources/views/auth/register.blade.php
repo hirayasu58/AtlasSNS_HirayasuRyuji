@@ -1,24 +1,29 @@
 <x-logout-layout>
+
     <!-- フォームは同じページ内に送る。 -->
 {!! Form::open(['url' => 'register']) !!}
 
+<div class="register-container">
+
 <h2>新規ユーザー登録</h2>
 
-{{ Form::label('ユーザー名') }}
-{{ Form::text('username',null,['class' => 'input']) }}
+{{ Form::label('username','ユーザー名', ['class' => 'label password-username-label']) }}
+{{ Form::text('username',null,['class' => 'form-text']) }}
 
-{{ Form::label('メールアドレス') }}
-{{ Form::email('email',null,['class' => 'input']) }}
+{{ Form::label('email','メールアドレス', ['class' => 'label email-pass-label']) }}
+{{ Form::email('email',null,['class' => 'form-text']) }}
 
-{{ Form::label('パスワード') }}
-{{ Form::text('password',null,['class' => 'input']) }}
+{{ Form::label('password','パスワード', ['class' => 'label password-username-label']) }}
+{{ Form::password('password',['class' => 'form-text']) }}
 
-{{ Form::label('パスワード確認') }}
-{{ Form::text('password_confirmation',null,['class' => 'input']) }}
+{{ Form::label('password_confirmation','パスワード確認', ['class' => 'label email-pass-label']) }}
+{{ Form::password('password_confirmation',['class' => 'form-text']) }}
 
-{{ Form::submit('登録') }}
+{{ Form::submit('新規登録',['class'=>'btn btn-danger login-register-btn']) }}
 
-<p><a href="login">ログイン画面へ戻る</a></p>
+<a href="login"><p class="login-back-message">ログイン画面へ戻る</p></a>
+
+</div>
 
 {!! Form::close() !!}
 

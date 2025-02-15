@@ -2,7 +2,7 @@
 
     {{ Form::open(['url' => 'posts/index' ]) }}
       <div class='post-container'>
-        <img src="{{ asset('/storage/'. Auth::user()->icon_image) }}" class="icon-img">
+        <img src="{{ asset('/storage/'. Auth::user()->icon_image) }}" class="icon-img img-size">
         {{ Form::textarea('post_create',null,['id' => 'post', 'placeholder' => '投稿内容を入力してください。', 'rows' => '5']) }}
         {{ Form::token() }}
         <!-- {{ Form::input('hidden', 'post_user', '') }} -->
@@ -11,18 +11,18 @@
     {{ Form::close() }}
 
     @if($errors->any())
-        <div class="alert alert-danger">
-          <ul>
-            @foreach($errors->all() as $error)
-            <li>{{ $error }}</li>
-            @endforeach
-          </ul>
-        </div>
+      <div class="alert alert-danger">
+        <ul>
+          @foreach($errors->all() as $error)
+          <li>{{ $error }}</li>
+          @endforeach
+        </ul>
+      </div>
     @endif
     @foreach ($posts as $post)
       <div class='post-list'>
-        <p class='user-icon'><img src="{{ asset('/storage/'. Auth::user()->icon_image) }}" class="icon-img"></p>
-        <p class='post-user_id'>{{ $post->user_id }}</p>
+        <p class='user-icon'><img src="{{ asset('storage/' . $post->user->icon_image) }}" class="icon-img img-size"></p>
+        <p class='post-username'>{{ $post->user->username }}</p>
         <p class='post-post'>{{ $post->post }}</p>
         <p class='post-updated_at'>{{ $post->updated_at }}</p>
       @if (Auth::user()->id == $post->user_id)
