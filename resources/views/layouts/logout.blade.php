@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+    <div class="login-back">
     <head>
         <meta charset="utf-8">
         <!--IEブラウザ対策-->
@@ -22,10 +23,10 @@
         <!--iphoneのアプリアイコン指定-->
         <link rel="apple-touch-icon-precomposed" href="画像のURL" />
     </head>
-    <body class="login-back">
-        <header  class="login-header">
+    <body>
+        <header  class="login-header login-added-header">
             <div class="header-container">
-                <h1><img src="images/atlas.png" class="login-page-logo"></h1>
+                <h1><figure><img src="images/atlas.png" class="login-page-logo"></figure></h1>
                 <p>Social Network Service</p>
             </div>
         </header>
@@ -36,4 +37,5 @@
         <script src="JavaScriptファイルのURL"></script>
         <script src="JavaScriptファイルのURL"></script>
     </body>
+    </div>
 </html>

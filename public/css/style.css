@@ -18,9 +18,14 @@ header {
     color: #fff;
     font-size: 20px;
     font-weight: bold;
-    width: 200px;
+    width: 400px;
     text-align: center;
     margin: auto 0;
+}
+
+p,
+div {
+    font-family: sans-serif;
 }
 
 /* ↓ 基本閉まっているように */
@@ -38,15 +43,6 @@ nav {
     margin: 0 0 0 auto;
 }
 
-/* .accordion-container {
-    display: flex;
-    position: relative;
-    float: right;
-    outline: 0;
-    border-top: none;
-    outline: 0;
-    margin: 0 0 0 auto;
-} */
 
 .accordion-container p {
     transition: 0.3s;
@@ -55,9 +51,9 @@ nav {
 .accordion-container ul {
     position: absolute;
     /* ↑子要素 */
-    left: -235px;
-    top: 67px;
-    width: 335px;
+    left: -195px;
+    top: 65px;
+    width: 290px;
     font-size: large;
 }
 
@@ -69,9 +65,8 @@ nav {
     position: relative;
     /* ↑親要素 */
     right: 25px;
-    top: 38%;
+    top: 32%;
     transform: rotate(135deg);
-    /* transition: transform .3s ease-in-out, top .3s ease-in-out; */
     width: 15px;
 }
 
@@ -121,12 +116,44 @@ nav {
 }
 
 #container {
-    flex: 0 0 80%;
+    flex: 0 0 80vw;
 }
 
 #side-bar {
     flex: 0 0 19%;
     border-left: 1px solid #727272;
+}
+
+#confirm {
+    display: block;
+    padding: 20px 20px 30px 20px;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.following-followed {
+    display: flex;
+}
+
+.following-followed div {
+    display: flex;
+    margin-right: 40px;
+}
+
+.side-username {
+    margin-bottom: 20px;
+}
+
+.side-btn {
+    display: flex;
+    margin: 10px;
+    width: 130px;
+    margin-left: auto;
+}
+
+.side-search-btn {
+    display: block;
+    width: 130px;
+    margin: 30px auto;
 }
 
 .menu {
@@ -154,10 +181,16 @@ nav {
     border-left: 1px solid #727272;
 }
 
-.post-container {
+.post-container,
+.follow-icon-list,
+.follower-icon-list {
     display: flex;
-    padding: 25px 0 25px;
+    padding: 15px 0 15px 50px;
     border-bottom: 5px solid #e0e0e0;
+}
+
+.post-container #post {
+    margin: 0 30px;
 }
 
 #post {
@@ -186,10 +219,6 @@ nav {
 
 .icon-img-search {
     margin: 0 10px 0 60px;
-}
-
-.post-list {
-    margin-left: 30px;
 }
 
 .edit-img,
@@ -223,22 +252,42 @@ nav {
 }
 
 .search-bar {
+    display: flex;
     margin-left: 50px;
+    height: 150px;
+    line-height: 100px;
+}
+
+.search-form {
+    border-bottom: 5px solid #e0e0e0;
+}
+
+#search {
+    height: 50px;
+    width: 350px;
+    font-size: large;
+    padding-left: 20px;
+    margin: auto 0;
 }
 
 .search-result {
     margin-left: 50px;
 }
 
-/* .search-button {
-    width: 55px;
-    height: 55px;
-} */
+.search-button {
+    width: auto;
+    margin-left: 20px;
+    background: none;
+    border: 0;
+    line-height: 0;
+    overflow: visible;
+    cursor: pointer;
+}
 
-/* .search-image {
+.search-img {
     width: 55px;
     height: 55px;
-} */
+}
 
 .content {
     margin: 0 auto;
@@ -263,7 +312,7 @@ nav {
 .modal__content {
     background: #fff;
     left: 50%;
-    padding: 40px;
+    padding: 20px;
     position: absolute;
     top: 50%;
     transform: translate(-50%, -50%);
@@ -287,7 +336,223 @@ nav {
     width: auto;
 }
 
-.img-profile-size {
-    height: 200px;
+.img-navigation-size {
+    height: 60px;
     width: auto;
+}
+
+.img-profile-size {
+    height: 110px;
+    width: auto;
+}
+
+.post-content {
+    display: flex;
+    width: 100%;
+    padding: 15px 15px 15px 150px;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.follow-list,
+.follower-list {
+    display: flex;
+    flex-wrap: wrap;
+    width: 60%;
+}
+
+.follow_icon,
+.follower_icon {
+    margin: 5px;
+}
+
+.follow-icon-list,
+.follower-icon-list {
+    display: flex;
+}
+
+.post-name-post {
+    width: 70%;
+    padding: 10px 10px 10px 15px;
+}
+
+.post-time-btn {
+    margin-left: auto;
+}
+
+.post-btn {
+    display: flex;
+    margin-top: 20px;
+}
+
+.post-post {
+    height: 70%;
+    margin-top: 15px;
+}
+
+.modal__content .edit-img {
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    bottom: 50px;
+}
+
+.modal_post {
+    width: 100%;
+    height: 150px;
+}
+
+.modal__content input {
+    display: block;
+    margin: 0 auto;
+    height: 60px;
+    width: 60px;
+}
+
+.list-title {
+    width: 25%;
+    font-size: x-large;
+    font-weight: 700;
+    text-align: center;
+    padding-top: 15px;
+}
+
+.post-created_at {
+    margin-left: auto;
+    margin-right: 15px;
+}
+
+.otherUser-profile {
+    display: block;
+    width: 70%;
+    padding: 15px 15px 15px 25px;
+}
+
+.otherUser-name,
+.otherUser-bio {
+    display: flex;
+    font-size: large;
+}
+
+.otherUser-bio {
+    margin-top: 15px;
+}
+
+.otherUser-name label {
+    margin-right: 30px;
+}
+
+.otherUser-bio label {
+    margin-right: 48px;
+}
+
+.other-form {
+    margin-left: auto;
+    margin-top: auto;
+    padding: 0 40px 5px 0;
+}
+
+.other-btn {
+    height: 40px;
+    width: 140px;
+    font-size: medium;
+    text-align: center;
+}
+
+.search-container {
+    display: flex;
+    position: relative;
+    padding: 10px 10px 10px 250px;
+}
+
+.search-result {
+    display: flex;
+}
+
+.search-form {
+    margin: 0 auto;
+}
+
+.btn-search {
+    position: absolute;
+    top: 33%;
+    left: 800px;
+}
+
+.search-user_name {
+    margin: auto;
+    padding-left: 25px;
+    font-size: medium;
+    font-weight: 600;
+}
+
+.search-word {
+    margin: auto 0;
+    padding-left: 150px;
+    font-size: x-large;
+    font-weight: 500;
+}
+
+.update {
+    display: flex;
+}
+
+.profile-container {
+    margin: 50px 0 0 250px;
+}
+
+.update-form {
+    display: block;
+}
+
+.update-block {
+    margin: 20px 0 20px 30px;
+    position: relative;
+    font-size: large;
+}
+
+.update-block input {
+    position: absolute;
+    background: #e6e6fa;
+    border: 1px #767676 solid;
+    color: #000;
+    left: 300px;
+    width: 400px;
+}
+
+.update-block label {
+    font-weight: 500;
+}
+
+#icon-file {
+    border: 1px #767676 solid;
+    padding: 35px 115px;
+    font-size: 0%;
+    background: #e6e6fa;
+    position: relative;
+    width: 400px;
+    height: 120px;
+    top: -33px;
+}
+
+#icon-file::file-selector-button {
+    position: absolute;
+    font-weight: normal;
+    color: #a9a9a9;
+    background: #fff;
+    font-size: 18px;
+    border: 0;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+.update-button {
+    width: 180px;
+    font-size: medium;
+    position: relative;
+    margin-bottom: 30px;
+    left: 230px;
+}
+
+.search-area {
+    height: 100vh;
 }

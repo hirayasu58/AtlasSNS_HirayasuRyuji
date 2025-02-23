@@ -1,8 +1,8 @@
         <div id="head">
             <!-- "{{-- --}}"でlaravelの関数を使えるようにする。ルーティングでname'index'を用意しておく。 -->
-            <h1><a href="{{ route('index') }}"><img src="{{ asset('/images/atlas.png') }}" class="title"></a></h1>
+            <h1><a href="{{ route('index') }}"><figure><img src="{{ asset('/images/atlas.png') }}" class="title"></figure></a></h1>
             <div class="side-user">
-                <p class="user-name">{{ Auth::user()->username }}さん</p>
+                <p class="user-name">{{ Auth::user()->username }} さん</p>
                 <div id="accordion" class="accordion-container">
                     <p class="menu-btn"></p>
                     <nav class="accordion-nav">
@@ -13,6 +13,6 @@
                         </ul>
                     </nav>
                 </div>
-                <img src="{{ asset('/storage/'. Auth::user()->icon_image) }}" class="icon-img img-size">
+                <figure><img src="{{ asset('/storage/'. Auth::user()->icon_image) }}" class="icon-img img-navigation-size"></figure>
             </div>
         </div>

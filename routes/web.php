@@ -48,10 +48,7 @@ Route::middleware('user')->group(function () {
     Route::get('post/{id}/delete', [PostsController::class,'delete'])->name('delete');
     // ↑postsではなくpost。ゴミ箱アイコン押されるとdeleteメソッド発動
 
-    route::post('posts/index', [PostsController::class,'newPost'])->name('new_post');
-    // 新規投稿
-
-    route::get('post/update', [PostsController::class,'updatePost'])->name('update');
+    Route::get('post/update', [PostsController::class,'updatePost'])->name('update');
     // 投稿編集
 
     Route::post('/follow', [ FollowsController::class, 'follow'])->name('follows.follow');

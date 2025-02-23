@@ -7978,6 +7978,20 @@ button.close {
   text-align: center;
 }
 
+/* .login-added-header {
+  width: 500px;
+  height: 100px;
+  margin: 0 auto;
+  display: block;
+  position: relative;
+  top: 100px;
+  color: #fff;
+  font-size: xx-large;
+  font-weight: 900;
+  font-family: sans-serif;
+  text-align: center;
+} */
+
 .login-container {
   width: 350px;
   height: 430px;
@@ -8087,7 +8101,7 @@ button.close {
   margin: 0 auto;
   padding: 20px 0;
   position: relative;
-  top: 130px;
+  top: 170px;
   border-radius: 10px;
   background-color: rgba(0, 0, 0, 0.1);
   text-align: center;

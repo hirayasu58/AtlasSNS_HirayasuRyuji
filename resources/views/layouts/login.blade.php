@@ -36,20 +36,20 @@
     </div>
     <div id="side-bar">
       <div id="confirm">
-        <p>{{ Auth::user()->username }}さんの</p>
-        <div>
-          <p>フォロー数</p>
-          <p>{{ Auth::user()->following()->count() }}名</p>
+        <p class="side-username">{{ Auth::user()->username }}さんの</p>
+        <div class="following-followed">
+          <div>フォロー数</div>
+          <div>{{ Auth::user()->following()->count() }}名</div>
           <!-- User.phpのAuthenticatableがAuthを継承しているから、User::classが使える。真ん中のはメソッド名。数を表示したいからcount()。 -->
         </div>
-        <p class="btn"><a href="{{ route('follow') }}">フォローリスト</a></p>
-        <div>
-          <p>フォロワー数</p>
-          <p>{{ Auth::user()->followed()->count() }}名</p>
+        <a href="{{ route('follow') }}"><p class="btn btn-primary side-btn">フォローリスト</p></a>
+        <div class="following-followed">
+          <div>フォロワー数</div>
+          <div>{{ Auth::user()->followed()->count() }}名</div>
         </div>
-        <p class="btn"><a href="{{ route('follower') }}">フォロワーリスト</a></p>
+        <a href="{{ route('follower') }}"><p class="btn btn-primary side-btn">フォロワーリスト</p></a>
       </div>
-      <p class="btn"><a href="{{ route('search') }}">ユーザー検索</a></p>
+      <a href="{{ route('search') }}"><p class="btn btn-primary side-search-btn">ユーザー検索</p></a>
     </div>
   </div>
   <footer>
