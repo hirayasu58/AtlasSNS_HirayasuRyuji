@@ -517,6 +517,7 @@ nav {
     color: #000;
     left: 300px;
     width: 400px;
+    padding-left: 8px;
 }
 
 .update-block label {
@@ -554,5 +555,5 @@ nav {
 }
 
 .search-area {
-    height: 100vh;
+    height: 100%;
 }

@@ -77,15 +77,12 @@ class UsersController extends Controller
 
     public function otherProfile($id){
 
-        // $otherProfileId = $request->input('otherProfileId');
-
         $user = User::where('id', $id)->first();
 
         $data = User::find($id);
 
         $posts = Post::with('user')->whereIn('user_id', $data)->orderBy('created_at','desc')->get();
         //投稿日時は降順「->orderBy('created_at','desc')」
-
 
         return view('profiles/otherProfile', compact('posts','user'));
 
